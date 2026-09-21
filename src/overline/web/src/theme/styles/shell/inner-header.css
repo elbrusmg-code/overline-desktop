@@ -1,0 +1,63 @@
+/* Overline Theme V1: Tanki breadcrumb header presentation only. */
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer {
+  background: var(--ov-bg-translucent);
+  box-shadow: inset 0 -1px 0 var(--ov-border-subtle), 0 4px 14px rgb(0 0 0 / 18%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-rightButtonsContainer {
+  box-shadow: inset 1px 0 0 var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton h3 {
+  color: var(--ov-text-secondary);
+  background: var(--ov-bg-raised);
+  border-radius: var(--ov-radius-control);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-rankIconContainerClickable {
+  background-color: transparent;
+  transition: background-color var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton:hover,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-rankIconContainerClickable:hover {
+  background-color: var(--ov-bg-hover);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton:active,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-rankIconContainerClickable:active {
+  background-color: var(--ov-bg-raised);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton:focus-visible,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-rankIconContainerClickable:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: -2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton[aria-disabled="true"],
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-rankIconContainerClickable[aria-disabled="true"] {
+  opacity: .55;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-userNameRank,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-breadcrumbs .BreadcrumbsComponentStyle-rootTitle > span {
+  color: var(--ov-text-primary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-containerProgressMainScreen .UserInfoContainerStyle-progressValue {
+  color: var(--ov-accent);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-containerProgressMainScreen .UserInfoContainerStyle-progressValue > span {
+  color: var(--ov-text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .BreadcrumbsComponentStyle-backButton,
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .BreadcrumbsComponentStyle-headerContainer .UserInfoContainerStyle-rankIconContainerClickable {
+    transition: none;
+  }
+}

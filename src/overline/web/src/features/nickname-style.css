@@ -1,0 +1,77 @@
+.overline-ns-preview {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  margin-top: 15px;
+  padding: 4px 10px;
+  overflow: hidden;
+  border: 1px solid var(--ov-border-strong);
+  border-radius: 6px;
+  background-color: var(--ov-bg-surface);
+  color: var(--ov-text-primary);
+  user-select: none;
+}
+.overline-ns-preview-rank { flex: none; color: var(--ov-text-secondary); font-size: 17px; }
+.overline-ns-preview-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 140px;
+  min-width: 0;
+  color: var(--ns-colour, var(--ov-text-primary));
+  font-family: var(--ns-font, Arial, sans-serif);
+}
+.overline-ns-preview-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.overline-ns-preview-card.has-outline .overline-ns-preview-name {
+  text-shadow: -1px 0 var(--ns-outline), 1px 0 var(--ns-outline), 0 -1px var(--ns-outline), 0 1px var(--ns-outline);
+}
+.overline-ns-preview-symbols { position: absolute; top: -8px; right: 1px; bottom: -8px; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; width: 14px; overflow: hidden; pointer-events: none; line-height: 1; }
+.overline-ns-preview-flag { font-size: 11px; }
+.overline-ns-preview-decoration { color: #a4d6cb; font-size: 10px; opacity: .72; }
+.overline-ns-preview-gs, .overline-ns-preview-equipment, .overline-ns-preview-protection, .overline-ns-preview-kd { flex: none; color: var(--ov-text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.overline-ns-preview-gs { font-size: 10px; }
+.overline-ns-preview-equipment, .overline-ns-preview-protection { font-size: 15px; }
+.overline-ns-preview-kd { margin-left: auto; font-size: 11px; }
+.overline-ns-options { display: flex; flex-wrap: wrap; gap: 5px; }
+.overline-ns-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 4px 7px;
+  border: 1px solid var(--ov-border-subtle);
+  border-radius: 4px;
+  background: var(--ov-bg-surface);
+  color: var(--ov-text-secondary);
+  font-size: 11px;
+}
+.overline-ns-choice:hover, .overline-ns-choice.selected { border-color: var(--ov-accent); color: var(--ov-text-primary); }
+.overline-ns-swatch { display: inline-block; width: 13px; height: 13px; flex: none; border: 1px solid var(--ov-border-strong); border-radius: 50%; }
+.overline-ns-aa { color: var(--ov-accent); font-size: 14px; font-weight: 700; }
+.overline-ns-backgrounds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.overline-ns-backgrounds .overline-ns-choice { width: 100%; min-width: 0; }
+.overline-ns-backgrounds .overline-ns-choice > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.overline-ns-background-thumb { display: inline-block; flex: none; width: 37px; height: 19px; border: 1px solid rgb(237 244 245 / 18%); border-radius: 2px; background-color: var(--ov-bg-base); background-size: cover; background-position: center; }
+.overline-ns-selects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.overline-ns-selects label { display: grid; gap: 5px; color: var(--ov-text-secondary); font-size: 11px; }
+.overline-ns-selects select { width: 100%; min-height: 32px; border: 1px solid var(--ov-border-strong); border-radius: 4px; background: var(--ov-bg-surface); color: var(--ov-text-primary); }
+.overline-ns-actions { display: flex; gap: 8px; margin-top: 18px; }
+.overline-ns-actions button {
+  min-height: 31px;
+  padding: 5px 10px;
+  border: 1px solid var(--ov-border-subtle);
+  border-radius: 4px;
+  background: var(--ov-bg-raised);
+  color: var(--ov-text-primary);
+}
+.overline-ns-actions .primary-action { border-color: var(--ov-accent); background: var(--ov-accent); color: var(--ov-bg-base); font-weight: 700; }
+.overline-ns-actions button:hover:not(:disabled) { border-color: var(--ov-border-strong); }
+.overline-ns-status { min-height: 16px; color: var(--ov-text-muted); font-size: 11px; }
+@media (max-width: 760px) {
+  .overline-ns-selects { grid-template-columns: 1fr; }
+  .overline-ns-backgrounds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .overline-ns-preview { gap: 5px; padding: 4px 6px; }
+  .overline-ns-preview-equipment { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .overline-ns-preview { animation: none !important; transition: none !important; } }

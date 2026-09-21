@@ -1,0 +1,36 @@
+/* Verified HTML scoreboard. Tanki retains team colors, data and geometry. */
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-containerInsideTeams {
+  background-color: rgb(16 24 32 / 78%);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle), 0 10px 28px rgb(0 0 0 / 22%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-header {
+  background-color: rgb(26 38 48 / 45%);
+  box-shadow: inset 0 -1px 0 var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-battleName {
+  color: var(--ov-text-primary);
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 60%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-blueTeamTableContainer,
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-redTeamTableContainer {
+  box-shadow: inset 0 0 0 1px rgb(237 244 245 / 12%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-rowBackGround {
+  box-shadow: inset 0 -1px 0 rgb(237 244 245 / 10%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-selectedRowBackGround {
+  box-shadow: inset 2px 0 0 var(--ov-accent), inset 0 -1px 0 rgb(237 244 245 / 16%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-nicknameCell,
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-gsCell,
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-scoreCell,
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleTabStatisticComponentStyle-container .BattleTabStatisticComponentStyle-dlCell {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 55%);
+}

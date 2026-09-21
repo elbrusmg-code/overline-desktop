@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" role="img" aria-label="Flag of Azerbaijan">
+  <rect width="24" height="16" fill="#00B5E2"/>
+  <rect y="5.333333" width="24" height="5.333334" fill="#EF3340"/>
+  <rect y="10.666667" width="24" height="5.333333" fill="#509E2F"/>
+
+  <!-- Crescent -->
+  <circle cx="11.0" cy="8" r="2.45" fill="#FFFFFF"/>
+  <circle cx="11.85" cy="8" r="2.05" fill="#EF3340"/>
+
+  <!-- Eight-pointed star -->
+  <path fill="#FFFFFF" d="
+    M15.1 6.55
+    L15.36 7.37
+    L16.12 6.97
+    L15.72 7.73
+    L16.55 8
+    L15.72 8.27
+    L16.12 9.03
+    L15.36 8.63
+    L15.1 9.45
+    L14.83 8.63
+    L14.07 9.03
+    L14.47 8.27
+    L13.65 8
+    L14.47 7.73
+    L14.07 6.97
+    L14.83 7.37
+    Z"/>
+</svg>

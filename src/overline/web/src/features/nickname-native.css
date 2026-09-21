@@ -1,0 +1,58 @@
+/* One paint surface on the exact local-UID row; native cells retain their layout. */
+.BattleTabStatisticComponentStyle-container
+  tr[data-overline-nickname-style="v1"] {
+  background-image: var(--overline-ns-bg-image) !important;
+  background-size: var(--overline-ns-bg-size) !important;
+  background-position: var(--overline-ns-bg-position) !important;
+  background-repeat: var(--overline-ns-bg-repeat) !important;
+}
+.BattleTabStatisticComponentStyle-container
+  tr[data-overline-nickname-style="v1"] > td {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+.BattleTabStatisticComponentStyle-container
+  .BattleTabStatisticComponentStyle-nicknameCell[data-overline-nickname-style="v1"] {
+  position: relative;
+  isolation: isolate;
+}
+.BattleTabStatisticComponentStyle-nicknameCell[data-overline-nickname-style="v1"]
+  .overline-nick-text {
+  position: relative;
+  z-index: 1;
+}
+.BattleTabStatisticComponentStyle-nicknameCell[data-overline-nickname-style="v1"]
+  .overline-nick-text.overline-nick-colour {
+  color: var(--overline-nick-colour) !important;
+}
+.BattleTabStatisticComponentStyle-nicknameCell[data-overline-nickname-style="v1"]
+  .overline-nick-text.overline-nick-font {
+  font-family: var(--overline-nick-font) !important;
+}
+.BattleTabStatisticComponentStyle-nicknameCell[data-overline-nickname-style="v1"]
+  .overline-nick-text.overline-nick-outline {
+  text-shadow: -1px 0 var(--overline-nick-outline), 1px 0 var(--overline-nick-outline),
+    0 -1px var(--overline-nick-outline), 0 1px var(--overline-nick-outline) !important;
+}
+.BattleTabStatisticComponentStyle-nicknameCell[data-overline-nickname-style="v1"]
+  .overline-nick-symbols {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 14px;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+.overline-nick-flag { font-size: 11px; }
+.overline-nick-decoration { color: #a4d6cb; font-size: 10px; opacity: .72; }
+@media (prefers-reduced-motion: reduce) {
+  .overline-nick-symbols { animation: none !important; transition: none !important; }
+}

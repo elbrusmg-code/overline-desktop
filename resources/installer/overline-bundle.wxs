@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+  <Bundle Name="Overline Client Setup"
+          Version="$(var.ClientVersion)"
+          Manufacturer="Overline"
+          UpgradeCode="622FB613-976E-4D84-B220-158B0CEED2B4"
+          IconSourceFile="$(var.OverlineIcon)"
+          Compressed="yes"
+          DisableModify="yes"
+          DisableRemove="yes">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense">
+      <bal:WixStandardBootstrapperApplication LicenseUrl=""
+                                              LogoFile="$(var.OverlineLogo)"
+                                              ShowVersion="yes" />
+    </BootstrapperApplicationRef>
+    <Variable Name="InstallFolder"
+              Type="string"
+              Value="[LocalAppDataFolder]Programs\Overline Client"
+              Persisted="yes"
+              bal:Overridable="yes" />
+    <Chain>
+      <MsiPackage Id="OverlineClientMsi"
+                  SourceFile="$(var.OverlineMsi)"
+                  Compressed="yes"
+                  Cache="yes"
+                  DisplayInternalUI="no"
+                  Vital="yes">
+        <MsiProperty Name="APPLICATIONROOTDIRECTORY" Value="[InstallFolder]" />
+      </MsiPackage>
+    </Chain>
+  </Bundle>
+</Wix>

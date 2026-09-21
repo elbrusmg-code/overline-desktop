@@ -1,0 +1,29 @@
+/* Verified battle composer and separate right-side chat shell. */
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleChatComponentStyle-rootDesktop .BattleChatComponentStyle-inputContainerAllies {
+  background-color: var(--ov-bg-translucent);
+  border-color: var(--ov-border-subtle);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 20%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleChatComponentStyle-rootDesktop .BattleChatComponentStyle-inputContainerAllies:focus-within {
+  border-color: var(--ov-focus);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleChatComponentStyle-rootDesktop .BattleChatComponentStyle-inputContainerAllies .BattleChatComponentStyle-btnToggleTeamAllies {
+  background-color: var(--ov-bg-hover);
+  box-shadow: inset -1px 0 0 var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleChatComponentStyle-rootDesktop .BattleChatComponentStyle-inputContainerAllies input {
+  color: var(--ov-text-primary);
+  caret-color: var(--ov-focus);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .ChatComponentStyle-chatWindow {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 1px 0 0 var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .ChatComponentStyle-chatResize {
+  background-color: var(--ov-border-strong);
+}

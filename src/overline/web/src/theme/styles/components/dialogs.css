@@ -1,0 +1,40 @@
+/* Native non-battle dialog shell. Tanki owns placement and actions. */
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-root,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover:not(:has(.-spinner)) {
+  background-color: var(--ov-backdrop);
+}
+
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .DialogContainerComponentStyle-container,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .DialogContainerComponentStyle-container {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle), var(--ov-shadow-panel);
+}
+
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .DialogContainerComponentStyle-header,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .DialogContainerComponentStyle-header {
+  box-shadow: inset 0 -1px 0 var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .DialogContainerComponentStyle-header h1,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .DialogContainerComponentStyle-header h1,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .DialogContainerComponentStyle-header .HeadlineComponentStyle-popupHeadlineContent span,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .DialogContainerComponentStyle-header .HeadlineComponentStyle-popupHeadlineContent span {
+  color: var(--ov-text-primary);
+}
+
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .DialogContainerComponentStyle-contentContainer,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .DialogContainerComponentStyle-contentContainer {
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .ButtonComponentStyle-disabled,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .ButtonComponentStyle-disabled {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-shaded .ButtonComponentStyle-disabled > span,
+:root[data-overline-theme="v1"]:is([data-overline-screen="lobby"], [data-overline-screen="inner"]) .ModalStyle-rootHover .ButtonComponentStyle-disabled > span {
+  color: var(--ov-text-muted);
+}

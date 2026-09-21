@@ -1,0 +1,124 @@
+/* Main lobby presentation. Tanki retains the scene, assets, layout, and controls. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 2px 0 0 var(--ov-border-subtle), inset 0 0 0 1px var(--ov-border-subtle);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:hover,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:focus-within {
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 2px 0 0 var(--ov-accent), inset 0 0 0 1px var(--ov-border-strong);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:active {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 2px 0 0 var(--ov-accent), inset 0 0 0 1px var(--ov-accent);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemName {
+  color: var(--ov-text-secondary);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+  transition: color var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:hover .PrimaryMenuItemComponentStyle-itemName,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:focus-within .PrimaryMenuItemComponentStyle-itemName {
+  color: var(--ov-text-primary);
+}
+
+/* Preserve Tanki's Play artwork; tint its native surrounding control only. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong), inset 3px 0 0 var(--ov-accent), 0 8px 24px rgb(0 0 0 / 24%);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:hover,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:focus-within {
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 0 0 1px var(--ov-accent), inset 3px 0 0 var(--ov-accent), 0 10px 26px rgb(0 0 0 / 28%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:active {
+  background-color: var(--ov-bg-base);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer span {
+  color: var(--ov-text-primary);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 60%);
+}
+
+/* Only the two verified lobby progression controls receive card framing. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle), 0 6px 18px rgb(0 0 0 / 20%);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass:hover,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass:hover {
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong), 0 8px 20px rgb(0 0 0 / 24%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass:focus-visible,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass:active,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass:active {
+  background-color: var(--ov-bg-surface);
+}
+
+/* Shared legacy navigation retains inner screens; this footer slice is lobby-owned. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem {
+  color: var(--ov-text-secondary);
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  transition: color var(--ov-motion-fast) ease, background-color var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:hover,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:focus-visible {
+  color: var(--ov-text-primary);
+  background-color: var(--ov-bg-raised);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:active {
+  background-color: var(--ov-bg-surface);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .-activeMenu {
+  color: var(--ov-accent);
+  box-shadow: inset 0 -2px 0 var(--ov-accent), inset 0 0 0 1px var(--ov-border-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemName,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem {
+    transition: none;
+  }
+}

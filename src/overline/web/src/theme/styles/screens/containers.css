@@ -1,0 +1,72 @@
+/* Containers and Possible Rewards chrome only. Tanki owns models, art, states and geometry. */
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ItemDescriptionComponentStyle-nameItem > span {
+  color: var(--ov-text-primary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-description,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-possibleRewardsBlock {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle), 0 6px 18px rgb(0 0 0 / 18%);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-description:hover,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-possibleRewardsBlock:hover {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong), 0 8px 20px rgb(0 0 0 / 20%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-description:focus-visible,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-possibleRewardsBlock:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ItemDescriptionComponentStyle-textClipped {
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-containersBlock .ContainersComponentStyle-bottomBlock {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 1px 0 var(--ov-border-subtle);
+}
+
+/* Possible Rewards detail panel and neutral reward-card frames. */
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxDescriptionContainer {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset -1px 0 0 var(--ov-border-subtle);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxDescriptionContainer .ContainerInfoComponentStyle-rewardCategoryName > span {
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxDescriptionContainer .ContainerInfoComponentStyle-rewardNameContainer > span {
+  color: var(--ov-text-primary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxDescriptionContainer .ContainerInfoComponentStyle-rewardDescription {
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxContainer .ContainerInfoComponentStyle-rewardPreview {
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  transition: box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxContainer .ContainerInfoComponentStyle-rewardPreview:hover {
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxContainer .ContainerInfoComponentStyle-rewardPreview:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-description,
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainersComponentStyle-infoPanel .ContainersComponentStyle-possibleRewardsBlock,
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .ContainerInfoComponentStyle-lootBoxContainer .ContainerInfoComponentStyle-rewardPreview {
+    transition: none;
+  }
+}

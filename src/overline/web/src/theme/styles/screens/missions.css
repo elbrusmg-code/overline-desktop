@@ -1,0 +1,83 @@
+/* Native mission and contract states; Tanki owns dimensions, progress and actions. */
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-commonCard:not(.MainQuestComponentStyle-cardRewardCompleted):not(.MainQuestComponentStyle-cardRewardGiven) {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-commonCard:not(.MainQuestComponentStyle-cardRewardCompleted):not(.MainQuestComponentStyle-cardRewardGiven):hover {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-commonCard:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .TableMainQuestComponentStyle-cardLockedTable {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-cardRewardCompleted {
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 0 0 1px var(--ov-success);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-cardRewardGiven {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .TableMainQuestComponentStyle-cardLockedTable:focus-visible,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-cardRewardCompleted:focus-visible,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-cardRewardGiven:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content [class*="-emptyList" i] h2 {
+  background-color: var(--ov-bg-raised);
+  color: var(--ov-text-primary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content [class*="-emptyList" i] p {
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContractCardComponentStyle-card {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContractCardComponentStyle-card:hover {
+  background-color: var(--ov-bg-surface);
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContractCardComponentStyle-card[data-state="completed" i] {
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 0 0 1px var(--ov-success);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContractCardComponentStyle-card:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .ContractCardComponentStyle-card .ContractCardComponentStyle-timer {
+  background-color: var(--ov-bg-raised);
+  color: var(--ov-warning);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .QuestsComponentStyle-content .MainQuestComponentStyle-commonCard,
+  :root[data-overline-theme="v1"][data-overline-screen="inner"] .ContractCardComponentStyle-card {
+    transition: none;
+  }
+}

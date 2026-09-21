@@ -1,0 +1,25 @@
+/* Theme V1 foundation only. No declaration styles a native Tanki element. */
+:root[data-overline-theme="v1"] {
+  --ov-bg-base: #101820;
+  --ov-bg-surface: #1a2630;
+  --ov-bg-raised: #24323d;
+  --ov-bg-hover: rgb(237 244 245 / 8%);
+  --ov-bg-translucent: rgb(16 24 32 / 88%);
+  --ov-backdrop: rgb(5 10 15 / 68%);
+  --ov-border-subtle: #364751;
+  --ov-border-strong: #627781;
+  --ov-text-primary: #edf4f5;
+  --ov-text-secondary: #b7c7cc;
+  --ov-text-muted: #879ba3;
+  --ov-accent: #69cbb7;
+  --ov-accent-hover: #88ddca;
+  --ov-focus: #a7eadb;
+  --ov-success: #86d49b;
+  --ov-warning: #e7bd72;
+  --ov-danger: #eb8188;
+  --ov-radius-control: 4px;
+  --ov-radius-card: 7px;
+  --ov-radius-panel: 10px;
+  --ov-shadow-panel: 0 16px 48px rgb(0 0 0 / 35%);
+  --ov-motion-fast: 140ms;
+}

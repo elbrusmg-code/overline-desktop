@@ -1,0 +1,44 @@
+/* Verified HTML battle HUD only. Tanki owns canvas and HUD geometry. */
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .UserInfoContainerStyle-userTitleContainer .UserInfoContainerStyle-userNameRank {
+  color: var(--ov-text-primary);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 65%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .UserInfoContainerStyle-containerParameterProgress .UserInfoContainerStyle-progressValue {
+  color: var(--ov-text-primary);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 65%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleMessagesComponentStyle-container .BattleMessagesComponentStyle-message {
+  text-shadow: 0 1px 3px rgb(0 0 0 / 70%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleHudComponentStyle-buttonsContainer .BattleHudComponentStyle-hudButton {
+  background-color: var(--ov-bg-translucent);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleHudComponentStyle-buttonsContainer .BattleHudComponentStyle-hudButton:hover {
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleHudComponentStyle-buttonsContainer .BattleHudComponentStyle-hudButton:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: 2px;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleHudComponentStyle-buttonsContainer .BattleHudComponentStyle-hudButton:active {
+  background-color: var(--ov-bg-surface);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleHudFpsComponentStyle-label {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 65%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-overline-theme="v1"][data-overline-screen="battle"] .BattleHudComponentStyle-hudContainer .BattleHudComponentStyle-buttonsContainer .BattleHudComponentStyle-hudButton {
+    transition: none;
+  }
+}

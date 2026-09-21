@@ -1,0 +1,32 @@
+{
+  "name": "overline-client",
+  "version": "0.1.0",
+  "productName": "Overline Client",
+  "description": "Overline Client",
+  "author": "Overline",
+  "private": true,
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.json && node scripts/copy-static.mjs && node scripts/bundle-overline.mjs",
+    "import:overline": "node scripts/import-overline.mjs",
+    "prestart": "npm run build",
+    "start": "electron-forge start",
+    "prepackage": "npm run build",
+    "package": "electron-forge package",
+    "premake": "npm run build",
+    "make": "electron-forge make",
+    "make:windows": "node scripts/make-windows.mjs"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "7.11.2",
+    "@electron-forge/maker-wix": "7.11.2",
+    "@electron-forge/maker-zip": "7.11.2",
+    "@types/node": "26.6.2",
+    "@types/semver": "7.7.1",
+    "electron": "41.5.2",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "semver": "7.7.3"
+  }
+}
