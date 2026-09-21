@@ -1,6 +1,6 @@
 # Overline Client Windows releases
 
-`package.json` is the canonical version source. Keep the installed app and release tag at the same semantic version. Do not publish another `0.1.0` as an update to the already installed `0.1.0`; bump to `0.1.1` or higher for the next release. The current build remains `0.1.0`.
+`package.json` is the canonical client version source. Keep the installed app and release tag at the same semantic version. The public `0.1.0` release remains available as the starting point for upgrade tests. This release is `0.1.1`; future releases must use higher versions. The packaged Overline web snapshot has its own extension version and does not set the desktop client version.
 
 ## Official source
 
