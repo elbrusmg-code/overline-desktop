@@ -1,21 +1,43 @@
 /* Lobby overlays retain native placement, message content, links and open/close behavior. */
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .ChatComponentStyle-chatWindow,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .NewsComponentStyle-newsWindow {
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset -1px 0 0 var(--ov-border-subtle);
+  background-color: var(--ov-bg-translucent-strong);
+  box-shadow: inset -1px 0 0 var(--ov-border-default), var(--ov-shadow-overlay);
+  color: var(--ov-text-secondary);
+  scrollbar-color: var(--ov-border-strong) transparent;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .ChatComponentStyle-chatWindow .ChatComponentStyle-upMenu {
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 0 -1px 0 var(--ov-border-subtle);
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 -1px 0 var(--ov-border-default);
+  color: var(--ov-text-primary);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .NewsComponentStyle-newsWindow .NewsComponentStyle-header {
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 0 -1px 0 var(--ov-border-subtle);
+  background-color: var(--ov-bg-raised);
+  box-shadow: inset 0 -1px 0 var(--ov-border-default);
+  color: var(--ov-text-primary);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .NewsComponentStyle-newsWindow .NewsComponentStyle-newsItemContainer {
-  background-color: var(--ov-bg-hover);
+  background-color: var(--ov-bg-surface);
   box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  color: var(--ov-text-secondary);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .NewsComponentStyle-newsWindow .NewsComponentStyle-newsItemContainer:hover {
+  background-color: var(--ov-bg-hover);
+  box-shadow: inset 0 0 0 1px var(--ov-border-default);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .NewsComponentStyle-newsWindow .NewsComponentStyle-newsItemContainer:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .NewsComponentStyle-newsWindow .NewsComponentStyle-newsItemContainer {
+    transition: none;
+  }
 }

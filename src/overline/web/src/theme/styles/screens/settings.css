@@ -1,113 +1,19 @@
-/* Settings presentation on native Tanki structure; control internals live in controls.css. */
+/* Settings presentation only. Tanki retains control geometry and semantic states. */
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsComponentStyle-scrollingMenu {
   background-color: var(--ov-bg-translucent);
   box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
+  overflow-x: auto;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsComponentStyle-borderLineOption {
   background-color: var(--ov-border-subtle);
 }
 
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .AccountSettingsComponentStyle-labelInputEmail {
-  color: var(--ov-text-secondary);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsMenuComponentStyle-menuItemOptions {
-  border-radius: var(--ov-radius-control);
-  background-color: transparent;
-  color: var(--ov-text-secondary);
-  transition: background-color var(--ov-motion-fast) ease, color var(--ov-motion-fast) ease;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsMenuComponentStyle-menuItemOptions > span {
-  color: inherit;
-}
-
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsMenuComponentStyle-menuItemOptions:hover {
-  background-color: var(--ov-bg-hover);
-  color: var(--ov-text-primary);
-}
-
-/* The native selected marker is a class fragment on this specific menu item. */
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsMenuComponentStyle-menuItemOptions[class*="activeitem" i] {
-  background-color: var(--ov-bg-raised);
-  color: var(--ov-text-primary);
-  box-shadow: inset 3px 0 0 var(--ov-accent);
+  color: #ef5260;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsMenuComponentStyle-menuItemOptions:focus-visible {
   outline: 2px solid var(--ov-focus);
   outline-offset: 2px;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-scrollingMenu [class*="textheadlineoptions" i] {
-  color: var(--ov-text-primary);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .CheckBoxComponentStyle-oneSetting label {
-  color: var(--ov-text-secondary);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .CheckBoxComponentStyle-oneSetting:has(input:is(:checked, [data-state="on"])) label {
-  color: var(--ov-text-primary);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsComponentStyle-slider > p > span {
-  color: var(--ov-accent);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .ButtonComponentStyle-disabled {
-  border-color: transparent;
-  border-radius: var(--ov-radius-control);
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .ButtonComponentStyle-disabled > span {
-  color: var(--ov-text-muted);
-}
-
-/* These exact input types were already scoped to the native Settings content. */
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="text"],
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="email"],
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="password"] {
-  background-color: var(--ov-bg-surface);
-  box-sizing: border-box;
-  border: 1px solid var(--ov-border-subtle);
-  border-radius: var(--ov-radius-control);
-  color: var(--ov-text-primary);
-  transition: background-color var(--ov-motion-fast) ease, border-color var(--ov-motion-fast) ease;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="text"]:hover,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="email"]:hover,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="password"]:hover {
-  background-color: var(--ov-bg-raised);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="text"]:focus-visible,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="email"]:focus-visible,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="password"]:focus-visible {
-  border-color: var(--ov-focus);
-  outline: 2px solid var(--ov-focus);
-  outline-offset: 2px;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="text"]:disabled,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="email"]:disabled,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="password"]:disabled {
-  background-color: var(--ov-bg-base);
-  color: var(--ov-text-muted);
-  opacity: .7;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="text"],
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="email"],
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions input[type="password"] {
-    transition: none;
-  }
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .SettingsComponentStyle-blockContentOptions .SettingsMenuComponentStyle-menuItemOptions {
-    transition: none;
-  }
 }

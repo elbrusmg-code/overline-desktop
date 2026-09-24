@@ -4,8 +4,8 @@
   const INSTANCE = Symbol.for("overline-extension.theme-v1");
   if (globalThis[INSTANCE]) return;
 
-  // Retain the existing preference key for compatibility.
-  const KEY = "severitiumThemeEnabled";
+  const KEY = "appearance";
+  const LEGACY_KEY = "severitiumThemeEnabled";
   const LINKS = [
     ["overline-v1-tokens", "src/theme/styles/tokens.css"],
     ["overline-v1-lobby-header", "src/theme/styles/shell/lobby-header.css"],
@@ -18,6 +18,7 @@
     ["overline-v1-shop", "src/theme/styles/screens/shop.css"],
     ["overline-v1-settings", "src/theme/styles/screens/settings.css"],
     ["overline-v1-missions", "src/theme/styles/screens/missions.css"],
+    ["overline-v1-battle-modes", "src/theme/styles/screens/battle-modes.css"],
     ["overline-v1-friends", "src/theme/styles/screens/friends.css"],
     ["overline-v1-ranks-profile", "src/theme/styles/screens/ranks-profile.css"],
     ["overline-v1-chat-news", "src/theme/styles/screens/chat-news.css"],
@@ -70,15 +71,19 @@
     for (const [id] of LINKS) globalThis.OverlinePlatform.styles.unmount(id);
   }
 
+  function normalizeTheme(value) {
+    return value === "none" ? "none" : "overline";
+  }
+
   function apply(value) {
-    if (value === false) unmount();
+    if (normalizeTheme(value) === "none") unmount();
     else mount();
   }
 
   function onStorageChanged(changes, area) {
     if (area !== "local" || !Object.hasOwn(changes, KEY)) return;
     preferenceRevision++;
-    apply(changes[KEY].newValue);
+    apply(changes[KEY].newValue?.theme);
   }
 
   function initialize() {
@@ -86,8 +91,19 @@
     initialized = true;
     globalThis.OverlinePlatform.storage.onChanged.addListener(onStorageChanged);
     const revision = preferenceRevision;
-    globalThis.OverlinePlatform.storage.local.get({ [KEY]: true }, (values) => {
-      if (initialized && revision === preferenceRevision) apply(values[KEY]);
+    globalThis.OverlinePlatform.storage.local.get([KEY, LEGACY_KEY], (values) => {
+      if (!initialized || revision !== preferenceRevision) return;
+      const storedAppearance = values[KEY] && typeof values[KEY] === "object" ? values[KEY] : {};
+      const hasTheme = storedAppearance.theme === "none" || storedAppearance.theme === "overline";
+      const theme = hasTheme
+        ? storedAppearance.theme
+        : values[LEGACY_KEY] === false ? "none" : "overline";
+      if (!hasTheme) {
+        globalThis.OverlinePlatform.storage.local.set({
+          [KEY]: { ...storedAppearance, theme }
+        });
+      }
+      apply(theme);
     });
   }
 
@@ -100,6 +116,6 @@
     delete globalThis[INSTANCE];
   }
 
-  globalThis[INSTANCE] = Object.freeze({ initialize, mount, update, unmount, cleanup });
+  globalThis[INSTANCE] = Object.freeze({ initialize, apply, mount, update, unmount, cleanup });
   initialize();
 })();

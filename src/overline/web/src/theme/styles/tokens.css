@@ -1,25 +1,63 @@
 /* Theme V1 foundation only. No declaration styles a native Tanki element. */
 :root[data-overline-theme="v1"] {
-  --ov-bg-base: #101820;
-  --ov-bg-surface: #1a2630;
-  --ov-bg-raised: #24323d;
-  --ov-bg-hover: rgb(237 244 245 / 8%);
-  --ov-bg-translucent: rgb(16 24 32 / 88%);
-  --ov-backdrop: rgb(5 10 15 / 68%);
-  --ov-border-subtle: #364751;
-  --ov-border-strong: #627781;
-  --ov-text-primary: #edf4f5;
-  --ov-text-secondary: #b7c7cc;
-  --ov-text-muted: #879ba3;
-  --ov-accent: #69cbb7;
-  --ov-accent-hover: #88ddca;
-  --ov-focus: #a7eadb;
+  /* Backgrounds */
+  --ov-bg-base: #0c0c0e;
+  --ov-bg-surface: #171719;
+  --ov-bg-raised: #232326;
+  --ov-bg-hover: rgb(244 240 240 / 7%);
+  --ov-bg-active: #2e292b;
+  --ov-bg-selected: rgb(184 50 62 / 14%);
+  --ov-bg-translucent: rgb(12 12 14 / 88%);
+  --ov-bg-translucent-strong: rgb(12 12 14 / 94%);
+  --ov-backdrop: rgb(4 4 5 / 72%);
+
+  /* Borders */
+  --ov-border-subtle: #323236;
+  --ov-border-default: #46464b;
+  --ov-border-strong: #626268;
+  --ov-border-accent: var(--ov-accent);
+  --ov-border-selected: rgb(184 50 62 / 58%);
+
+  /* Text */
+  --ov-text-primary: #f2f0f0;
+  --ov-text-secondary: #c7c3c4;
+  --ov-text-muted: #918b8e;
+  --ov-text-disabled: rgb(199 195 196 / 52%);
+  --ov-text-accent: var(--ov-accent);
+
+  /* Accent and semantic states */
+  --ov-accent: #b8323e;
+  --ov-accent-hover: #d64a55;
+  --ov-accent-active: #912833;
+  --ov-focus: #ef6a73;
   --ov-success: #86d49b;
   --ov-warning: #e7bd72;
-  --ov-danger: #eb8188;
+  --ov-danger: #e05c64;
+
+  /* Scoreboard and HUD surfaces */
+  --ov-scoreboard-bg: rgb(12 12 14 / 80%);
+  --ov-scoreboard-header: rgb(23 23 25 / 54%);
+  --ov-scoreboard-row: transparent;
+  --ov-scoreboard-row-hover: rgb(244 240 240 / 7%);
+  --ov-scoreboard-separator: rgb(244 240 240 / 10%);
+  --ov-scoreboard-separator-strong: rgb(244 240 240 / 16%);
+
+  /* Feature accents */
+  --ov-nickname-decoration: #c56a72;
+
+  /* Geometry */
   --ov-radius-control: 4px;
   --ov-radius-card: 7px;
   --ov-radius-panel: 10px;
+
+  /* Elevation */
+  --ov-shadow-low: 0 4px 14px rgb(0 0 0 / 20%);
+  --ov-shadow-card: 0 8px 24px rgb(0 0 0 / 24%);
   --ov-shadow-panel: 0 16px 48px rgb(0 0 0 / 35%);
+  --ov-shadow-overlay: 0 10px 28px rgb(0 0 0 / 22%);
+  --ov-shadow-text: 0 1px 3px rgb(0 0 0 / 65%);
+
+  /* Motion */
   --ov-motion-fast: 140ms;
+  --ov-motion-normal: 200ms;
 }

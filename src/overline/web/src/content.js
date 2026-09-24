@@ -1,6 +1,24 @@
 (() => {
   "use strict";
 
+  // Nickname Style V1 is temporarily disabled. Remove only artifacts it may
+  // have left on native TAB nodes during an in-session client update.
+  function cleanupNicknameStyleV1() {
+    globalThis.OverlinePlatform.styles.unmount("overline-nickname-native-css");
+    document.querySelectorAll(".overline-nick-layer, .overline-nick-symbols").forEach((node) => node.remove());
+    document.querySelectorAll("[data-overline-nickname-style], [data-overline-nickname-layout], [data-overline-nickname-background], [data-overline-nickname-applied], .overline-nick-text, .overline-nick-colour, .overline-nick-font, .overline-nick-outline").forEach((node) => {
+      node.removeAttribute("data-overline-nickname-style");
+      node.removeAttribute("data-overline-nickname-layout");
+      node.removeAttribute("data-overline-nickname-background");
+      node.removeAttribute("data-overline-nickname-applied");
+      node.classList.remove("overline-nick-text", "overline-nick-colour", "overline-nick-font", "overline-nick-outline");
+      for (const property of ["--overline-nick-colour", "--overline-nick-font", "--overline-nick-outline",
+        "--overline-ns-bg-image", "--overline-ns-bg-size", "--overline-ns-bg-repeat", "--overline-ns-bg-position"])
+        node.style.removeProperty(property);
+    });
+  }
+  cleanupNicknameStyleV1();
+
   const INSTANCE = Symbol.for("overline-extension.instance");
   if (globalThis[INSTANCE]) {
     if (!globalThis[INSTANCE].isConnected) (document.body || document.documentElement).append(globalThis[INSTANCE]);
@@ -12,7 +30,8 @@
   const defaultAppearance = {
     background: "#151d23", text: "#ffffff", warningText: "#f06d73",
     border: "#536269", warningBorder: "#a94d53", opacity: 86,
-    blur: 5, radius: 6, borderWidth: 1, fontSize: 22, timerScale: 1
+    blur: 5, radius: 6, borderWidth: 1, fontSize: 22, timerScale: 1,
+    theme: "overline"
   };
   const defaults = {
     duration: 100, addSeconds: 5, subtractSeconds: 5, warningSeconds: 10,
@@ -33,14 +52,14 @@
       <section class="settings-window" role="dialog" aria-modal="true" aria-label="Overline control center" tabindex="-1">
         <header class="topbar">
           <div class="brand"><img class="brand-logo" src="${globalThis.OverlinePlatform.resources.getURL("src/assets/branding/icons/icon-32.png")}" alt=""><span><strong>OVERLINE</strong><small>CONTROL CENTER</small></span></div>
-          <button type="button" class="close-panel" aria-label="Close Overline panel">×</button>
+          <div class="window-actions"><span class="close-hint"><kbd>Insert</kbd> to close</span><button type="button" class="close-panel" aria-label="Close Overline panel">×</button></div>
         </header>
         <div class="panel-body">
           <nav class="topnav" aria-label="Settings sections">
             <button type="button" data-page="timer" class="selected" aria-current="page">Timer</button>
             <button type="button" data-page="audio">Audio</button>
             <button type="button" data-page="appearance">Appearance</button>
-            <button type="button" data-page="nickname-style">Nickname Style</button>
+            <button type="button" data-page="theme">Theme</button>
             <button type="button" data-page="about">About</button>
           </nav>
         <main class="content">
@@ -96,13 +115,15 @@
               <aside class="preview-area"><span>LIVE PREVIEW</span><div class="timer-preview">01:40</div><button class="reset-position" type="button">Reset timer position</button><button class="restore-appearance" type="button">Restore default appearance</button></aside>
             </div>
           </section>
-          <section class="page hidden" data-content="nickname-style">
-            <div class="page-heading"><div><p class="eyebrow">FEATURE / 02</p><h1>Nickname Style</h1></div><p>Customize your local nickname appearance.</p></div>
-            <p class="section-note">Local appearance — visible only to you</p>
-            <div class="nickname-editor"></div>
+          <section class="page hidden" data-content="theme">
+            <div class="page-heading"><div><p class="eyebrow">APPEARANCE / 04</p><h1>Theme</h1></div><p>Choose how Tanki looks.</p></div>
+            <div class="theme-options" role="group" aria-label="Tanki visual theme">
+              <button type="button" data-theme="none"><strong>No Theme</strong><span>Original Tanki Online appearance.</span></button>
+              <button type="button" data-theme="overline"><strong>Overline</strong><span>Overline's dark/crimson visual theme.</span></button>
+            </div>
           </section>
           <section class="page hidden" data-content="about">
-            <div class="page-heading"><div><p class="eyebrow">CONTROL / 04</p><h1>About Overline</h1></div><p>Version 0.1.0</p></div>
+            <div class="page-heading"><div><p class="eyebrow">CONTROL / 05</p><h1>About Overline</h1></div><p>Version 0.1.0</p></div>
             <div class="about-copy"><p>Developed by Elbrus Guliyev</p><p>Unofficial companion extension for Tanki Online</p><p>Not affiliated with Tanki Online or Alternativa Games</p><p>Does not automate or modify gameplay</p></div>
           </section>
         </main>
@@ -117,7 +138,6 @@
   const $$ = (selector) => [...shadow.querySelectorAll(selector)];
   const hud = $(".timer-hud");
   const backdrop = $(".backdrop");
-  const nicknameStyle = globalThis.OverlineNicknameStyle.create(shadow, $(".nickname-editor"));
   let phase = "idle", remainingMs = defaults.duration * 1000, targetTime = 0, tickId = null;
   let cycleDurationMs = defaults.duration * 1000, cycleNumber = 0, warnedCycle = -1;
   let captureAction = null, lastFocus = null;
@@ -149,6 +169,22 @@
     if (hud.classList.contains("positioned")) clampPosition(parseFloat(hud.style.left), parseFloat(hud.style.top));
     hud.classList.toggle("movable", settings.timerMovement);
     $(".timer-preview").textContent = hud.textContent;
+  }
+  function normalizeTheme(value) {
+    return value === "none" ? "none" : "overline";
+  }
+  function renderTheme() {
+    $$('[data-theme]').forEach((button) => {
+      const selected = button.dataset.theme === settings.appearance.theme;
+      button.classList.toggle("selected", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+  }
+  function selectTheme(value) {
+    settings.appearance.theme = normalizeTheme(value);
+    renderTheme();
+    globalThis[Symbol.for("overline-extension.theme-v1")]?.apply(settings.appearance.theme);
+    save({ appearance: settings.appearance });
   }
   function render() {
     hud.textContent = format(remainingMs);
@@ -258,7 +294,6 @@
     });
     $$(".page").forEach((page) => page.classList.toggle("hidden", page.dataset.content !== name));
     $(".content").scrollTop = 0;
-    if (name === "nickname-style") nicknameStyle.refresh();
   }
   function openMenu() {
     lastFocus = shadow.activeElement || document.activeElement;
@@ -399,6 +434,7 @@
   $(".timer-subtract").addEventListener("click", () => adjust(-settings.subtractSeconds));
 
   $$(".topnav button").forEach((button) => button.addEventListener("click", () => selectPage(button.dataset.page)));
+  $$('[data-theme]').forEach((button) => button.addEventListener("click", () => selectTheme(button.dataset.theme)));
   $$("[data-hotkey]").forEach((button) => button.addEventListener("click", () => {
     captureAction = button.dataset.hotkey;
     $(".hotkey-message").textContent = "Press a key for " + captureAction + ".";
@@ -446,7 +482,8 @@
     save({ timerPosition: null });
   });
   $(".restore-appearance").addEventListener("click", () => {
-    settings.appearance = { ...defaultAppearance };
+    const theme = settings.appearance.theme;
+    settings.appearance = { ...defaultAppearance, theme };
     setMovement(true);
     renderAppearanceInputs();
     applyAppearance();
@@ -501,6 +538,7 @@
     settings.hotkeys = Object.fromEntries(Object.keys(defaultHotkeys).map((key) => [key, stored.hotkeys?.[key] || defaultHotkeys[key]]));
     if (stored.hotkeys?.menu) save({ hotkeys: settings.hotkeys });
     settings.appearance = { ...defaultAppearance, ...stored.appearance };
+    settings.appearance.theme = normalizeTheme(settings.appearance.theme);
     settings.appearance.timerScale = Number.isFinite(settings.appearance.timerScale)
       ? Math.round(Math.min(2, Math.max(0.5, settings.appearance.timerScale)) * 20) / 20 : 1;
     for (const [selector, key] of [
@@ -516,6 +554,7 @@
     remainingMs = settings.duration * 1000;
     renderHotkeys();
     renderAppearanceInputs();
+    renderTheme();
     applyAppearance();
     render();
     restorePosition(settings.timerPosition);

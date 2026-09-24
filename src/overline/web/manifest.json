@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Overline Extension",
   "version": "0.1.0",
-  "description": "Customize Tanki Online with a local interface theme, overtime timer, nickname styling, and companion controls.",
+  "description": "Customize Tanki Online with a local interface theme, overtime timer, and companion controls.",
   "icons": {
     "16": "src/assets/branding/icons/icon-16.png",
     "32": "src/assets/branding/icons/icon-32.png",
@@ -21,7 +21,6 @@
       "js": [
         "src/theme/selector-registry.js",
         "src/theme/index.js",
-        "src/features/nickname-style.js",
         "src/content.js"
       ],
       "run_at": "document_idle"
@@ -31,9 +30,6 @@
     {
       "resources": [
         "src/panel.css",
-        "src/features/nickname-style.css",
-        "src/features/nickname-native.css",
-        "src/assets/nickname-backgrounds/azerbaijan.svg",
         "src/assets/branding/icons/icon-32.png",
         "src/theme/styles/tokens.css",
         "src/theme/styles/shell/lobby-header.css",
@@ -50,6 +46,7 @@
         "src/theme/styles/screens/shop.css",
         "src/theme/styles/screens/settings.css",
         "src/theme/styles/screens/missions.css",
+        "src/theme/styles/screens/battle-modes.css",
         "src/theme/styles/screens/friends.css",
         "src/theme/styles/screens/ranks-profile.css",
         "src/theme/styles/screens/chat-news.css",

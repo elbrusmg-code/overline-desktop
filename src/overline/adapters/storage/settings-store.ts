@@ -15,6 +15,7 @@ const appearanceNumbers: Record<string, [number, number]> = {
   borderWidth: [0, 8], fontSize: [14, 36], timerScale: [0.5, 2]
 };
 const appearanceColours = new Set(["background", "text", "warningText", "border", "warningBorder"]);
+const appearanceThemes = new Set(["none", "overline"]);
 const hotkeyNames = new Set(["visibility", "toggle", "reset", "add", "subtract"]);
 const nicknameNames = new Set(["colour", "typeface", "outline", "background", "flag", "decoration"]);
 const storedKeys = new Set([...Object.keys(numeric), ...booleans, "timerPosition", "hotkeys", "appearance", "overlineNicknameStyleV1"]);
@@ -35,7 +36,8 @@ function valid(value: unknown, key: string): boolean {
       (/^[A-Z0-9]$/.test(hotkey) || /^F([1-9]|1[0-2])$/.test(hotkey) ||
         ["Delete", "Home", "End", "PageUp", "PageDown"].includes(hotkey)));
   if (key === "appearance") return record(value) && Object.entries(value).every(([name, item]) =>
-    appearanceColours.has(name) ? typeof item === "string" && /^#[0-9a-fA-F]{6}$/.test(item) :
+    name === "theme" ? typeof item === "string" && appearanceThemes.has(item) :
+      appearanceColours.has(name) ? typeof item === "string" && /^#[0-9a-fA-F]{6}$/.test(item) :
       name in appearanceNumbers && typeof item === "number" && Number.isFinite(item) &&
       item >= appearanceNumbers[name][0] && item <= appearanceNumbers[name][1]);
   if (key === "overlineNicknameStyleV1") return record(value) && Object.keys(value).length <= 6 &&

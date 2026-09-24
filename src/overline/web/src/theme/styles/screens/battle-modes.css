@@ -1,0 +1,23 @@
+/* Play and PRO Battles interactions only. Tanki retains geometry, artwork, and semantic states. */
+:root[data-overline-theme="v1"] .BattlePickComponentStyle-modeCards .BattlePickComponentStyle-commonStyleBlock.BattlePickComponentStyle-styleIsEnableBlock:hover {
+  box-shadow: 0 0 0 1px #d43d4c, 0 0 3px rgb(212 61 76 / 30%);
+}
+
+/* The native choose control receives a local accent; format cards and their artwork remain native. */
+:root[data-overline-theme="v1"] .ScrollingCardsComponentStyle-blockCenter .ScrollingCardsComponentStyle-selectCard:hover {
+  box-shadow: 0 0 0 1px #d43d4c, 0 0 3px rgb(212 61 76 / 25%);
+}
+
+:root[data-overline-theme="v1"] .ScrollingCardsComponentStyle-blockCenter .ScrollingCardsComponentStyle-selectCard:focus-visible {
+  outline: 2px solid #d43d4c;
+  outline-offset: 2px;
+}
+
+/* Shared menu classes are restricted to the verified PRO Battles navigation. */
+:root[data-overline-theme="v1"] .ProBattlesComponentStyle-mainContainer .ProBattlesComponentStyle-navigationBlock .MenuComponentStyle-mainMenuItem:hover {
+  color: #ef5260;
+}
+
+:root[data-overline-theme="v1"] .ProBattlesComponentStyle-mainContainer .ProBattlesComponentStyle-navigationBlock .MenuComponentStyle-mainMenuItem.-activeMenu {
+  color: #d43d4c;
+}

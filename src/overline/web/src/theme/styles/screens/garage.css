@@ -1,130 +1,48 @@
-/* Garage content only. Tanki retains geometry, artwork, and gameplay states. */
+/* Garage content only. Tanki retains geometry, artwork, and semantic states. */
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageMenuComponentStyle-garageMenuContainer .MenuComponentStyle-mainMenuItem.-activeMenu {
+  color: #d43d4c;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageMenuComponentStyle-garageMenuContainer .MenuComponentStyle-mainMenuItem.-activeMenu .-menuItemActive {
+  background-color: #d43d4c;
+  box-shadow: 0 0 3px #d43d4c;
+  filter: drop-shadow(0 0 2px rgb(212 61 76 / 20%));
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageMenuComponentStyle-garageMenuContainer .MenuComponentStyle-mainMenuItem:hover {
+  color: #ef5260;
+}
+
+/* Existing information surfaces keep their native geometry and content hierarchy. */
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .TankParametersStyle-leftParamsContainer {
   background-color: var(--ov-bg-translucent);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle), 0 8px 24px rgb(0 0 0 / 18%);
+  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .TankParametersStyle-parametersBlockGear:not(:last-of-type) {
   border-bottom-color: var(--ov-border-subtle);
 }
 
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .TankParametersStyle-parametersBlockGear > h3,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .MountedItemsStyle-tankPartNameContainer h1 {
-  color: var(--ov-text-primary);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .TankParametersStyle-parametersBlockGear > div > span,
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .MountedItemsStyle-containerBlockGarage .GarageItemComponentStyle-supplyCount {
-  color: var(--ov-text-secondary);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .MountedItemsStyle-resistanceContainer .MountedItemsStyle-commonForCellResistenceName {
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .MountedItemsStyle-resistanceContainer .MountedItemsStyle-commonForCellResistenceName:hover {
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
-}
-
-/* Bottom supply rail and its named add control. */
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-commonBlockSupplies {
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset 0 1px 0 var(--ov-border-subtle);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-decorLine {
-  background: var(--ov-border-subtle);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-cellAdd {
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-cellAdd:hover {
-  background-color: var(--ov-bg-raised);
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-cellAdd:focus-visible {
-  outline: 2px solid var(--ov-focus);
-  outline-offset: 2px;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-cellAdd:active {
-  background-color: var(--ov-bg-base);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-cellAdd > span {
-  color: var(--ov-text-primary);
-}
-
-/* Native item previews, including Paints, retain their images and selection logic. */
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageItemComponentStyle-itemPreview {
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageItemComponentStyle-itemPreview:hover {
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageItemComponentStyle-itemPreview:focus-visible {
-  outline: 2px solid var(--ov-focus);
-  outline-offset: 2px;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageItemComponentStyle-itemPreview[data-state="active"] {
-  background-color: var(--ov-bg-raised);
-  box-shadow: inset 0 0 0 2px var(--ov-accent);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageItemComponentStyle-itemPreview[aria-disabled="true"] {
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-}
-
-/* Detail copy and action surface. Native availability colors stay intact. */
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .ItemDescriptionComponentStyle-descriptionBlockDevice .ItemDescriptionComponentStyle-nameItem span {
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .MountedItemsStyle-tankPartNameContainer,
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .ItemDescriptionComponentStyle-nameItem {
   color: var(--ov-text-primary);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .ItemDescriptionComponentStyle-descriptionBlockDevice .ItemDescriptionComponentStyle-captionDevice {
   background-color: var(--ov-bg-translucent);
   box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-  transition: box-shadow var(--ov-motion-fast) ease;
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .ItemDescriptionComponentStyle-descriptionBlockDevice .ItemDescriptionComponentStyle-captionDevice:hover {
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .ItemDescriptionComponentStyle-textClipped {
   color: var(--ov-text-secondary);
 }
 
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageCommonStyle-bigActionButton {
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-  transition: box-shadow var(--ov-motion-fast) ease;
+/* Enabled interactions receive local feedback without replacing native button states. */
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageCommonStyle-bigActionButton:not(.-buttonEstablished):hover {
+  box-shadow: inset 0 0 0 1px #d43d4c, 0 0 3px rgb(212 61 76 / 20%);
 }
 
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageCommonStyle-bigActionButton:hover {
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong);
-}
-
-:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageCommonStyle-bigActionButton:focus-visible {
+:root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageCommonStyle-bigActionButton:not(.-buttonEstablished):focus-visible {
   outline: 2px solid var(--ov-focus);
   outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .SuppliesComponentStyle-cellAdd,
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageItemComponentStyle-itemPreview,
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .ItemDescriptionComponentStyle-descriptionBlockDevice .ItemDescriptionComponentStyle-captionDevice,
-  :root[data-overline-theme="v1"][data-overline-screen="inner"] .GarageCommonStyle-garageContainer .GarageCommonStyle-bigActionButton {
-    transition: none;
-  }
 }

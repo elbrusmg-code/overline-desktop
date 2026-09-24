@@ -1,19 +1,41 @@
 /* Main lobby presentation. Tanki retains the scene, assets, layout, and controls. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] {
+  --ov-lobby-accent: #d43d4c;
+  --ov-lobby-accent-hover: #ef5260;
+  --ov-lobby-accent-active: #a92735;
+  --ov-lobby-edge: rgb(212 61 76 / 62%);
+  --ov-lobby-glow: rgb(212 61 76 / 20%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-gradientBlock {
+  background-image: linear-gradient(90deg, rgb(8 8 10 / 58%) 0%, rgb(12 12 14 / 24%) 62%, transparent 100%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-gradientBlockRight {
+  background-color: transparent;
+  background-image: none;
+}
+
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi {
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset 2px 0 0 var(--ov-border-subtle), inset 0 0 0 1px var(--ov-border-subtle);
-  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+  margin-block: 3px;
+  border-radius: 3px;
+  background-color: transparent;
+  background-image: linear-gradient(90deg, rgb(12 12 14 / 90%) 0%, rgb(23 23 25 / 70%) 68%, transparent 100%);
+  box-shadow: inset 3px 0 0 rgb(98 98 104 / 68%), inset 0 -1px 0 rgb(98 98 104 / 32%), var(--ov-shadow-low);
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease, color var(--ov-motion-fast) ease;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:hover,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:focus-within {
-  background-color: var(--ov-bg-raised);
-  box-shadow: inset 2px 0 0 var(--ov-accent), inset 0 0 0 1px var(--ov-border-strong);
+  background-color: transparent;
+  background-image: linear-gradient(90deg, rgb(46 41 43 / 96%) 0%, rgb(54 32 35 / 80%) 70%, transparent 100%);
+  box-shadow: inset 3px 0 0 var(--ov-lobby-accent), inset 0 0 0 1px var(--ov-lobby-edge), 0 0 12px var(--ov-lobby-glow), var(--ov-shadow-card);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:active {
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 2px 0 0 var(--ov-accent), inset 0 0 0 1px var(--ov-accent);
+  background-color: var(--ov-bg-selected);
+  background-image: linear-gradient(90deg, rgb(65 34 38 / 96%) 0%, rgb(35 29 31 / 76%) 72%, transparent 100%);
+  box-shadow: inset 3px 0 0 var(--ov-lobby-accent-active), inset 0 0 0 1px var(--ov-lobby-edge);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi:focus-visible {
@@ -22,8 +44,10 @@
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemName {
-  color: var(--ov-text-secondary);
-  text-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+  color: var(--ov-text-primary);
+  text-shadow: var(--ov-shadow-text);
+  font-weight: 700;
+  letter-spacing: .035em;
   transition: color var(--ov-motion-fast) ease;
 }
 
@@ -34,19 +58,53 @@
 
 /* Preserve Tanki's Play artwork; tint its native surrounding control only. */
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer {
-  background-color: var(--ov-bg-surface);
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong), inset 3px 0 0 var(--ov-accent), 0 8px 24px rgb(0 0 0 / 24%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--ov-radius-card);
+  background-color: var(--ov-bg-base);
+  color: var(--ov-lobby-accent-hover);
+  box-shadow: inset 0 0 0 1px var(--ov-lobby-edge), inset 4px 0 0 var(--ov-lobby-accent), 0 0 16px var(--ov-lobby-glow), var(--ov-shadow-panel);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 84%), 0 0 12px rgb(212 61 76 / 30%);
+  font-weight: 700;
+  letter-spacing: .045em;
+  transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(105deg, rgb(8 8 9 / 92%), rgb(23 23 25 / 80%) 58%, rgb(47 24 27 / 72%));
+  box-shadow: inset 0 0 0 1px rgb(212 61 76 / 30%);
   transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:hover,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:focus-within {
-  background-color: var(--ov-bg-raised);
-  box-shadow: inset 0 0 0 1px var(--ov-accent), inset 3px 0 0 var(--ov-accent), 0 10px 26px rgb(0 0 0 / 28%);
+  background-color: var(--ov-bg-active);
+  box-shadow: inset 0 0 0 1px var(--ov-lobby-accent-hover), inset 4px 0 0 var(--ov-lobby-accent-hover), 0 0 20px rgb(212 61 76 / 28%), var(--ov-shadow-panel);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:hover::before,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:focus-within::before {
+  background-image: linear-gradient(105deg, rgb(8 8 9 / 88%), rgb(46 41 43 / 76%) 58%, rgb(145 40 51 / 34%));
+  box-shadow: inset 0 0 0 1px rgb(214 74 85 / 34%);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:active {
-  background-color: var(--ov-bg-base);
+  background-color: var(--ov-bg-selected);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer.MainScreenComponentStyle-activeItem {
+  box-shadow: inset 0 0 0 1px var(--ov-lobby-accent-hover), inset 4px 0 0 var(--ov-lobby-accent), 0 0 18px var(--ov-lobby-glow), var(--ov-shadow-panel);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer.MainScreenComponentStyle-disabledButtonPlay {
+  opacity: .62;
+  box-shadow: inset 0 0 0 1px var(--ov-border-default), inset 3px 0 0 var(--ov-border-strong), var(--ov-shadow-low);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer:focus-visible {
@@ -54,23 +112,20 @@
   outline-offset: 2px;
 }
 
-:root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer span {
-  color: var(--ov-text-primary);
-  text-shadow: 0 1px 3px rgb(0 0 0 / 60%);
-}
-
 /* Only the two verified lobby progression controls receive card framing. */
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass {
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle), 0 6px 18px rgb(0 0 0 / 20%);
+  background-color: rgb(12 12 14 / 86%);
+  background-image: linear-gradient(145deg, rgb(35 35 38 / 42%), transparent 62%);
+  border-radius: var(--ov-radius-control);
+  box-shadow: inset 0 0 0 1px rgb(212 61 76 / 76%), inset 3px 0 0 rgb(212 61 76 / 64%), 0 0 4px rgb(212 61 76 / 20%);
   transition: background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass:hover,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass:hover {
-  background-color: var(--ov-bg-raised);
-  box-shadow: inset 0 0 0 1px var(--ov-border-strong), 0 8px 20px rgb(0 0 0 / 24%);
+  background-color: var(--ov-bg-active);
+  box-shadow: inset 0 0 0 1px var(--ov-lobby-accent-hover), inset 3px 0 0 var(--ov-lobby-accent-hover), 0 0 4px rgb(212 61 76 / 24%);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass:focus-visible,
@@ -81,21 +136,135 @@
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass:active,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass:active {
-  background-color: var(--ov-bg-surface);
+  background-color: var(--ov-bg-selected);
+  box-shadow: inset 0 0 0 1px var(--ov-lobby-edge), inset 3px 0 0 var(--ov-lobby-accent-active);
+}
+
+/* Verified Level Rewards internals. Native timer and progress artwork keep their semantics. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass .ChallengeTimerComponentStyle-timer,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass .ChallengeTimerComponentStyle-textTime {
+  color: var(--ov-warning);
+  text-shadow: 0 1px 1px rgb(0 0 0 / 48%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-descriptionEventPass {
+  text-shadow: var(--ov-shadow-text);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-commonBlockProgressBar {
+  text-shadow: var(--ov-shadow-text);
+  box-shadow: 0 0 0 1px rgb(212 61 76 / 28%);
+}
+
+/* Verified Lobby Challenges hierarchy. Reward and lock artwork remain native. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-descriptionMenuPass {
+  color: var(--ov-text-primary);
+  box-shadow: inset 0 -1px 0 rgb(98 98 104 / 28%);
+  text-shadow: var(--ov-shadow-text);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-numberStar {
+  color: var(--ov-warning);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-timers {
+  color: var(--ov-text-secondary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-blockBattlePass {
+  background-color: rgb(35 35 38 / 42%);
+  box-shadow: inset 0 -1px 0 rgb(98 98 104 / 22%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-commonDescription {
+  color: var(--ov-text-primary);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-currentLevel {
+  color: var(--ov-text-muted);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-lockedBlock {
+  color: var(--ov-text-muted);
+  opacity: .78;
+}
+
+/* Native promotional artwork is intentionally untouched; only its chrome is themed. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-mainContainer {
+  background-color: rgb(12 12 14 / 82%);
+  box-shadow: inset 0 0 0 1px rgb(212 61 76 / 76%), 0 0 4px rgb(212 61 76 / 20%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-mainBackGroundContainer {
+  box-shadow: inset 0 0 0 1px rgb(242 240 240 / 8%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-announceContainer {
+  background-color: rgb(12 12 14 / 90%);
+  color: var(--ov-text-primary);
+  box-shadow: inset 0 1px 0 rgb(98 98 104 / 30%);
+  text-shadow: var(--ov-shadow-text);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-headerTimer {
+  color: var(--ov-warning);
+  text-shadow: var(--ov-shadow-text);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-navigationContainer {
+  color: var(--ov-text-secondary);
+  background-color: rgb(12 12 14 / 74%);
+  box-shadow: inset 0 1px 0 rgb(98 98 104 / 22%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-navigationLabelPoint {
+  background-color: var(--ov-text-muted);
+  box-shadow: none;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .AnnouncementHomeScreenComponentStyle-selectedNavigationLabelPoint {
+  background-color: var(--ov-lobby-accent-hover);
+  box-shadow: 0 0 7px var(--ov-lobby-glow);
+}
+
+/* Bottom Lobby controls stay visually light and retain their native hit areas. */
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .FooterComponentStyle-footer {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .FooterComponentStyle-containerMenu {
+  color: var(--ov-text-secondary);
+  background-color: transparent;
+  box-shadow: none;
+  transition: color var(--ov-motion-fast) ease, background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .FooterComponentStyle-containerMenu:hover,
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .FooterComponentStyle-containerMenu:focus-visible {
+  color: var(--ov-text-primary);
+  background-color: rgb(212 61 76 / 10%);
+  box-shadow: inset 0 -2px 0 var(--ov-lobby-accent), 0 0 9px rgb(212 61 76 / 12%);
+}
+
+:root[data-overline-theme="v1"][data-overline-screen="lobby"] .FooterComponentStyle-containerMenu:focus-visible {
+  outline: 2px solid var(--ov-focus);
+  outline-offset: -2px;
 }
 
 /* Shared legacy navigation retains inner screens; this footer slice is lobby-owned. */
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem {
   color: var(--ov-text-secondary);
-  background-color: var(--ov-bg-translucent);
-  box-shadow: inset 0 0 0 1px var(--ov-border-subtle);
-  transition: color var(--ov-motion-fast) ease, background-color var(--ov-motion-fast) ease;
+  background-color: transparent;
+  box-shadow: none;
+  transition: color var(--ov-motion-fast) ease, background-color var(--ov-motion-fast) ease, box-shadow var(--ov-motion-fast) ease;
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:hover,
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:focus-visible {
   color: var(--ov-text-primary);
-  background-color: var(--ov-bg-raised);
+  background-color: var(--ov-bg-hover);
+  box-shadow: inset 0 0 0 1px var(--ov-border-selected), 0 0 10px rgb(184 50 62 / 10%);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:focus-visible {
@@ -104,20 +273,23 @@
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem:active {
-  background-color: var(--ov-bg-surface);
+  background-color: var(--ov-bg-active);
 }
 
 :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .-activeMenu {
-  color: var(--ov-accent);
-  box-shadow: inset 0 -2px 0 var(--ov-accent), inset 0 0 0 1px var(--ov-border-subtle);
+  color: var(--ov-text-primary);
+  background-color: var(--ov-bg-selected);
+  box-shadow: inset 0 -2px 0 var(--ov-accent), inset 0 0 0 1px var(--ov-border-selected);
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemCommonLi,
   :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-blockMainMenu .PrimaryMenuItemComponentStyle-itemName,
   :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MainScreenComponentStyle-playButtonContainer::before,
   :root[data-overline-theme="v1"][data-overline-screen="lobby"] .BattlePassLobbyComponentStyle-menuBattlePass,
   :root[data-overline-theme="v1"][data-overline-screen="lobby"] .EventBattlePassLobbyComponentStyle-buttonEventBattlePass,
+  :root[data-overline-theme="v1"][data-overline-screen="lobby"] .FooterComponentStyle-containerMenu,
   :root[data-overline-theme="v1"][data-overline-screen="lobby"] .MenuComponentStyle-blockButtonsQECommunity .MenuComponentStyle-mainMenuItem {
     transition: none;
   }
